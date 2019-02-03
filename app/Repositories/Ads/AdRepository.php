@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\Ads;
+use App\Traits\ImageUploadTrait;
 use App\Helpers\Helper;
 use App\Models\{
     Ad,
@@ -11,6 +12,8 @@ class AdRepository implements AdInterface
 {
 
     protected $ads;
+
+    use ImageUploadTrait;
 
     public function __construct(Ad $ads)
     {
@@ -40,7 +43,7 @@ class AdRepository implements AdInterface
 
     public function getById($id)
     {
-
+        return $this->ads::find($id);
     }
 
     public function update($request, $id)
@@ -50,15 +53,16 @@ class AdRepository implements AdInterface
 
     public function getByUser()
     {
-
+        return $this->ads::select('id','title','price','slug','created_at')->whereUser_id(\Auth::user()->id)->get();
     }
 
     public function storeImages($ad,$imgArry)
     {
         foreach ($imgArry as $img) 
         {
+            $image_name=$this->saveImages($img);
             $image=new Image();
-            $image->image=$img->getClientOriginalName();
+            $image->image=$image=$image;
             $ad->images()->save($image);
         }
     }

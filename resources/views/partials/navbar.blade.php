@@ -26,7 +26,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/myAds">إعلاناتي</a>
+                    <a class="dropdown-item" href="/userAds">إعلاناتي</a>
                     <a class="dropdown-item" href="/myFav">تفضيلاتي</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}"
