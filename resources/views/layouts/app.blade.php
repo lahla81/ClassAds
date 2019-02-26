@@ -22,9 +22,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        
            @include('partials/navbar')
-        </nav>
+        
 
         <div class="jumbotron text-center">
             @include('partials/searchfrm')

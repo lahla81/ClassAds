@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="nav navbar-nav navbar-left">
+        <ul class="nav navbar-nav navbar-left mr-auto">
             @guest
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('auth.Login') }}</a>

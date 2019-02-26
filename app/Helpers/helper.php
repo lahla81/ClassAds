@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class helper 
+class Helper 
 {
     public static function slug($str)
     {
@@ -14,6 +14,7 @@ class helper
         
         return $string;
     }
+    
     public static function uniqueSlug($slug,$table)
     {
         $slug=trim($slug);
@@ -32,6 +33,7 @@ class helper
             }
             return $slug_str;
         }
+        return $slug;
     }
 
 }

@@ -4,13 +4,13 @@
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-3">
-                <select class="form-control" name="category" >
+                <select class="form-control" name="category_id" >
                     <option value="">--اختر التصنيف--</option>
                     @include('lists.categories')
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <select class="form-control" name="country" >
+                <select class="form-control" name="country_id" >
                     <option value="">--اختر الدولة--</option>
                    @include('lists.countries')
                 </select>

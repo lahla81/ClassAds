@@ -18,16 +18,17 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         view()->composer(
-            ['partials.categoryNav','partials.searchfrm','lists.categories','lists.countries','lists.categoryNav'],'App\Http\ViewComposer\CategoryComposer'
+            ['partials.categoryNav','partials.searchfrm','lists.categories','lists.categoryNav','ads.edit'],'App\Http\ViewComposer\CategoryComposer'
         );
 
         view()->composer(
-            ['partials.searchfrm','ads.create'],'App\Http\ViewComposer\CountryComposer'
+            ['partials.searchfrm','lists.countries','ads.edit'],'App\Http\ViewComposer\CountryComposer'
         );
 
         view()->composer(
-            ['ads.create'],'App\Http\ViewComposer\CurrencyComposer'
+            ['lists.currencies', 'ads.edit'],'App\Http\ViewComposer\CurrencyComposer'
         );
+ 
     }
 
     /**
@@ -38,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('App\Http\ViewComposer\CategoryComposer');
+
+        $this->app->singleton('App\Http\ViewComposer\CountryComposer');
+
+        $this->app->singleton('App\Http\ViewComposer\CurrencyComposer');
     }
 }

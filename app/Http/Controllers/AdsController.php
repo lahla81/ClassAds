@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Http\Requests\AdsRequest;
 
 use App\Repositories\ {
     Ads\AdInterface
@@ -49,9 +48,35 @@ class AdsController extends Controller
         return back()->with('success','تم تعديل الإعلان');
     }
 
+    public function destroy($id)
+    {
+        $this->ads->delete($id);
+
+       return back()->with('success','تم حذف الإعلان');
+    }
     public function getUserAds()
     {
         $ads=$this->ads->getByUser();
         return view('ads.userAds',compact('ads'));
     }
+
+    public function getByCategory($id)
+    {
+        $ads=$this->ads->getByCategory($id);
+        return view('ads.adsByCategory',compact('ads'));
+    }
+
+    public function search(Request $request)
+    {
+        $ads = $this->ads->search($request);
+
+        return view('ads.adsByCategory',compact('ads'));
+    }    
+
+    public function show($id)
+    {
+        $ad = $this->ads->getDetails($id);
+
+        return view('ads.show',compact('ad'));
+    }    
 }
